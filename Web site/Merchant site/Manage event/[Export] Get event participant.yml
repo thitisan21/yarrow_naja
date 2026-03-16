@@ -1,0 +1,38 @@
+info:
+  name: "[Export] Get event participant"
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/event/participant/:id/export?type=participant&sortBy=createdAt&sortOrderBy=asc"
+  params:
+    - name: type
+      value: participant
+      type: query
+      description: // participant, leave, notify
+    - name: search
+      value: kenny
+      type: query
+      description: "// optional => displayname, name "
+      disabled: true
+    - name: sortBy
+      value: createdAt
+      type: query
+      description: // name, status, createdAt
+    - name: sortOrderBy
+      value: asc
+      type: query
+      description: // asc, desc
+    - name: id
+      value: 695f2a7f437c8d808549760c
+      type: path
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

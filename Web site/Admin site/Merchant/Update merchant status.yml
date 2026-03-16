@@ -1,0 +1,28 @@
+info:
+  name: Update merchant status
+  type: http
+  seq: 13
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/admin/merchant/status/:id"
+  params:
+    - name: id
+      value: 668b82eb02507b91593985fc
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "Aa123456", //madatory
+          "status": "paused" //madatory ex => paused, delete
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

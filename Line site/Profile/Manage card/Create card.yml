@@ -1,0 +1,27 @@
+info:
+  name: Create card
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_local}}/line/user/card"
+  body:
+    type: json
+    data: |-
+      {
+          "cardNumber": "1111", // last 4 
+          "brand": "Visa", // visa, mastercard, jcb, union pay
+          "isMainCard": true, // optional default false
+          "securePayToken": "00acjVFcUOgzasr0wUyhMI+ladsKnF4R+Xc1z4L1WS3yXZVL4KrvHd45d/yNphW7sSq5GY62JdYJ9IaYOSe3QSkKN9fRErh/37vXETf4Y4Yeeck8BUrCovYm/rcXRcRhSunccJBAL6Rg3ZWZ7ILmm0ARUvYPERERPU8uFXAJ/fcJ+NQ=U2FsdGVkX1+cEZ3yFbrxgyimnkD4NGCaJH8EcRWkawQIWCYGjd5FxiA7vSx5sS7u",
+          "redirectUrl": "https://localhost:3000"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

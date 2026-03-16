@@ -1,0 +1,28 @@
+info:
+  name: Approve refund
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/merchant/refund/approve/:id"
+  params:
+    - name: id
+      value: 66b58cf0621fe82a094fabb0
+      type: path
+      description: // _id from Get detail refund
+  body:
+    type: json
+    data: |-
+      {
+          "status": false
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

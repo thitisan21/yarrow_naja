@@ -1,0 +1,27 @@
+info:
+  name: Update event without refund
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{url_local}}/line/without/refund/:id"
+  params:
+    - name: id
+      value: 66b58cf0621fe82a094fabb0
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "status": false //true, false
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,27 @@
+info:
+  name: Leave event by spot
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url_local}}/line/leave/event/spot"
+  body:
+    type: json
+    data: |-
+      {
+          "id": "69ae7a0dfc4c963f23b3f99f", // arrSpotList._id isCanLeave = true
+          "accountName": "12345", // optional case isRefund = true
+          "bankName": "SCB", // optional case isRefund = true
+          "bankAccountNumber": "AAAA", // optional case isRefund = true
+          "refundReason": "Booking wrong event." // optional case isRefund = true
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

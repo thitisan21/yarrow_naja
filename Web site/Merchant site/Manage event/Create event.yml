@@ -1,0 +1,42 @@
+info:
+  name: Create event
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/event"
+  body:
+    type: json
+    data: |-
+      {
+          "eventName": "test noti event v2",
+          "eventDescription": "test noti event v2",
+          "sportType": [
+              "Badminton"
+          ],
+          "dateStart": "2026-03-10",
+          "timeStart": "17:00",
+          "dateEnd": "2026-03-11",
+          "timeEnd": "19:00",
+          "praticipantNumber": 1,
+          "price": 50, // if free set 0
+          "isRefund": true,
+          "timeRegister": "01:00",
+          "isPrivate": true, // true, false
+          "timeRefund": "01:00",
+          "isFree": false,
+          "location": "สาขาบ้าน", // from Create merchant location
+          "link": "https://bo-dev-yarrow-event-pulse.vthgdigital.com/merchant/event/6874a049eaeb9f60f035fbfc", // from Create merchant location
+          "province": "กรุงเทพมหานคร", // from Create merchant location
+          "limitSpotQuota": 1 // if isFree event default 1
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

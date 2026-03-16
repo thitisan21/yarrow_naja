@@ -1,0 +1,117 @@
+info:
+  name: Get detail refund
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/admin/refund/detail/:id"
+  params:
+    - name: id
+      value: 68884b33d445caa8193cedc7
+      type: path
+      description: id from List request refund
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: "[Refunded] have slip"
+    request:
+      url: "{{url_local}}/backoffice/admin/refund/detail/:id"
+      method: GET
+      params:
+        - name: id
+          value: 66b32e9c40d7ab5c498d4960
+          type: path
+          description: id from List request refund
+    response:
+      statusText: "200"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "1082"
+        - name: ETag
+          value: W/"43a-ZlMFkf1hdD9YBY/U/z1IRWQIyjk"
+        - name: Date
+          value: Thu, 08 Aug 2024 09:42:27 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "slipImg": "https://yarrow-dev-liff.s3.ap-southeast-1.amazonaws.com/images/66b491b4a41602df2db8857d?AWSAccessKeyId=AKIA2PRTXOSOWYSCOB7S&Expires=1723113747&Signature=JbCZeIGm8jyj4bQb3KiaHTKB7yI%3D",
+                  "_id": "66b32e9c40d7ab5c498d4960",
+                  "eventName": "test event for mom 1.0",
+                  "eventDescription": "test event for mom 1234 v1.0",
+                  "dateStart": "2024-09-01T00:00:00.000Z",
+                  "dateEnd": "2024-09-01T00:00:00.000Z",
+                  "timeStart": "17:00",
+                  "timeEnd": "19:30",
+                  "duration": "02:30 hrs.",
+                  "price": 500,
+                  "accountName": "nuttapus",
+                  "bankAccountNumber": "1234567",
+                  "bankName": "SCB",
+                  "leavedAt": "2024-08-08T03:55:45.157Z",
+                  "refundReason": "Booking wrong event.",
+                  "isApprove": true,
+                  "refundStatus": "refunded",
+                  "sportType": [
+                      "Football"
+                  ],
+                  "merchant": {
+                      "_id": "6687b90fc65c7776bfbe736a",
+                      "merchantName": "Test1",
+                      "merchantColor": "Test1"
+                  },
+                  "userId": {
+                      "_id": "668b6a262f482f643c569d8c",
+                      "displayName": "test ken",
+                      "name": "K E N N Y.",
+                      "pictureUrl": "https://sprofile.line-scdn.net/0h8gKlsjkOZ0hmFXcyUEkZNxZFZCJFZD5aS3MtKVcXMSxbLCMeTyYgK1scP35YdylKQnp7elMSOnlqBhAueEObfGElOnlaJScbT3QprA"
+                  }
+              }
+          }

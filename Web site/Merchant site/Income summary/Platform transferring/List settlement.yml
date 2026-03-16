@@ -1,0 +1,40 @@
+info:
+  name: List settlement
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/merchant/settlement/list?skip=1&limit=10&sortBy=merchantName&sortOrderBy=desc"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // merchantName
+      disabled: true
+    - name: sortBy
+      value: merchantName
+      type: query
+      description: // settlementNumber, amount, status, updatedAt
+    - name: sortOrderBy
+      value: desc
+      type: query
+      description: // asc, desc
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

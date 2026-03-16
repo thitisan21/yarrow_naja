@@ -1,0 +1,28 @@
+info:
+  name: "[test] Update payment Copy"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/line/event/payment"
+  body:
+    type: json
+    data: |-
+      {
+          "paymentType": "CREDIT",
+          "id": "66e14f1763ed7f8df083addb",
+          "paymentAmount": 500,
+          "securePayToken": "00acaMDQUaWLeW20gSezDlIF6+AQFvo7Bnhm6wPtQEjG6Er1ik6lZxS4BIbla04cQ88H1H84haXW6KedpR/3KzpcGwYEiDvPBiDNEj4nG4SColJWwDv9DpxsqLY7e22qaiqxh+JtzeBViNPC9yVuvmdFcpvZsRddhtKGrH4DzEnvK3Y=U2FsdGVkX1/+CtXsSeBuq1+5eSnd27F3iXKFYhRvC1OEZYRI8Jzg3gwkGbDZoac7",
+          "isRemember": false,
+          "redirectUrl": "https://localhost:5173/thank/66d967475aeb96cb655dfa27?t=card"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

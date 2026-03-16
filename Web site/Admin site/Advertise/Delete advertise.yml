@@ -1,0 +1,27 @@
+info:
+  name: Delete advertise
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{url_local}}/backoffice/ads/:adsId"
+  params:
+    - name: adsId
+      value: 68de4a9ae99b09585c179085
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "Aa123456"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

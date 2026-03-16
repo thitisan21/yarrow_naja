@@ -1,0 +1,28 @@
+info:
+  name: Update event staus
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/event/status/:id"
+  params:
+    - name: id
+      value: 68884b1595de766fe25b271b
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password":"8oojkiyd",
+          "status": "cancelled" //closed, cancelled
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

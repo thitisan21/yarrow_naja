@@ -1,0 +1,25 @@
+info:
+  name: List merchant location
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/merchant/location?search="
+  params:
+    - name: search
+      value: ""
+      type: query
+      description: // location
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

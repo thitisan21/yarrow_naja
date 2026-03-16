@@ -1,0 +1,52 @@
+info:
+  name: List advertise
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/ads/list?skip=1&limit=10&bannerPosition=all&status=all&sortBy=priority&sortOrderBy=desc"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // bannerName
+      disabled: true
+    - name: bannerPosition
+      value: all
+      type: query
+      description: // all, discover, payment
+    - name: status
+      value: all
+      type: query
+      description: // all, draft, opened,
+    - name: sortBy
+      value: priority
+      type: query
+      description: // priority
+    - name: sortOrderBy
+      value: desc
+      type: query
+      description: // asc, desc
+    - name: merchantTargetId
+      value: 685bfeca266e6a8d4f806c30,681aca994390fee9bf025220
+      type: query
+      disabled: true
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

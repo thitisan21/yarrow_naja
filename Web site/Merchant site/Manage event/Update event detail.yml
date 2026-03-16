@@ -1,0 +1,43 @@
+info:
+  name: Update event detail
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/event/detail/:id"
+  params:
+    - name: id
+      value: 69a8ef09ef2d917d79e52abb
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "eventName": "test noti v1.2",
+          "eventDescription": "test noti v1.2",
+          "sportType": "badminton",
+          "dateStart": "2026-03-06",
+          "dateEnd": "2026-03-07",
+          "timeStart": "10:00",
+          "timeEnd": "17:00",
+          "praticipantNumber": 3,
+          "price": 50,
+          "isRefund": false,
+          "password": "8oojkiyd",
+          "isPrivate": false,
+          "isFree": false,
+          "location": "branch BKK",
+          "link": "https://bo-dev-yarrow-event-pulse.vthgdigital.com/merchant/event/6874a049eaeb9f60f035fbfc",
+          "province": "Bangkok",
+          "limitSpotQuota": 1
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

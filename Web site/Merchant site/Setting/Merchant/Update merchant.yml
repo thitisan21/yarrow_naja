@@ -1,0 +1,70 @@
+info:
+  name: Update merchant
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: "{{url_local}}/backoffice/merchant/:id"
+  params:
+    - name: id
+      value: 681aca994390fee9bf025220
+      type: path
+  body:
+    type: multipart-form
+    data:
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/01_id_card.png
+      - name: merchantColor
+        type: text
+        value: "#fff5e9"
+        description: // hex color
+        disabled: true
+      - name: locationName
+        type: text
+        value: chonburi
+        disabled: true
+      - name: latitude
+        type: text
+        value: "13.131098930008744"
+        disabled: true
+      - name: longitude
+        type: text
+        value: "100.96548762678424"
+        disabled: true
+      - name: merchantMapUrl
+        type: text
+        value: https://maps.app.goo.gl/8EC4rES47nmqS2bJ8
+        disabled: true
+      - name: isPrivate
+        type: text
+        value: "true"
+      - name: lineId
+        type: text
+        value: "@Ttest01"
+      - name: phoneNumber
+        type: text
+        value: "0877777777"
+      - name: merchantEmail
+        type: text
+        value: test1@gmail.com
+      - name: facebook
+        type: text
+        value: hiTest@facebook
+      - name: ig
+        type: text
+        value: hiTest@ig
+      - name: tiktok
+        type: text
+        value: hiTest@tiktok
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

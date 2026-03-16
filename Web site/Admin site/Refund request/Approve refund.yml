@@ -1,0 +1,29 @@
+info:
+  name: Approve refund
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/admin/refund/slip/:id"
+  params:
+    - name: id
+      value: 68ca59122d8b52cbf328c038
+      type: path
+      description: // _id from Get detail refund
+  body:
+    type: multipart-form
+    data:
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/1qr.png
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,43 @@
+info:
+  name: List admin
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/admin?skip=1&limit=10&search=&role=all&sortBy=roles&sortOrderBy=desc"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // name, email
+    - name: role
+      value: all
+      type: query
+      description: // all, SUPERADMIN, BACKOFFICE_ADMIN
+    - name: sortBy
+      value: roles
+      type: query
+      description: // name, email, createdAt, roles
+    - name: sortOrderBy
+      value: desc
+      type: query
+      description: // asc, desc
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

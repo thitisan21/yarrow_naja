@@ -1,0 +1,29 @@
+info:
+  name: List of province
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/province"
+  headers:
+    - name: search
+      value: ""
+  params:
+    - name: search
+      value: กรุงเทพ
+      type: query
+      description: // location
+      disabled: true
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

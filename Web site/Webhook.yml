@@ -1,0 +1,31 @@
+info:
+  name: Webhook
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/webhook"
+  body:
+    type: json
+    data: |-
+      {
+          "destination": "U1306936a0186b33720032d46533e34b5",
+          "events": [
+              {
+                  "type": "follow",
+                  "source": {
+                      "type": "user",
+                      "userId": "U1306936a0186b33720032d46533e34b5",
+                      "displayName": "B",
+                      "pictureUrl": "https://profile.line-scdn.net/0hGGuGhPqSGGhYPgmWpo1mFyhuGwJ7T0F6clBQB2U3R1FnDVo7fFxUWjhqFQsyDAw8fQpVDj47FlBULW8ORmjkXF8ORVlkCV89c19UiQ"
+                  }
+              }
+          ]
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,26 @@
+info:
+  name: Invite admin
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/invite/admin"
+  body:
+    type: json
+    data: |-
+      {
+          "email": "ken.nuttapus@gmail.com",
+          "name": "Kenny1",
+          "phoneNumber": "0899999999",
+          "role": "ADMIN" //BACKOFFICE_ADMIN, SUPERADMIN
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

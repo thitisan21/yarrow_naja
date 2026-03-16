@@ -1,0 +1,32 @@
+info:
+  name: List card
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/user/card?skip=1&limit=10&sortBy&sortOrderBy"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: sortBy
+      value: ""
+      type: query
+      description: // createdAt
+    - name: sortOrderBy
+      value: ""
+      type: query
+      description: // asc, desc
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,22 @@
+info:
+  name: "[v2] Get event spot detail"
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/line/event/info/v2/detail/:id"
+  params:
+    - name: id
+      value: 69297c6a5f5e9f913482065b
+      type: path
+      description: // eventId
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

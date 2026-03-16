@@ -1,0 +1,23 @@
+info:
+  name: Check pending list
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/check/pending/list"
+  params:
+    - name: search
+      value: ""
+      type: query
+      description: // run every mins ex => * * * * *
+      disabled: true
+  body:
+    type: json
+    data: ""
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

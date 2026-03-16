@@ -1,0 +1,29 @@
+info:
+  name: Update merchant account
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/merchant/account/:id"
+  params:
+    - name: id
+      value: 6687b90fc65c7776bfbe736a
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "accountNo": "1234567890",
+          "accountName": "Test bank",
+          "accountBank": "SCB"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

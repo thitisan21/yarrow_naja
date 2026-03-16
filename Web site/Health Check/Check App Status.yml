@@ -1,0 +1,14 @@
+info:
+  name: Check App Status
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url_local_non}}/checkAppStatus"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

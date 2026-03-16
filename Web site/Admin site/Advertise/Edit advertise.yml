@@ -1,0 +1,61 @@
+info:
+  name: Edit advertise
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: "{{url_local}}/backoffice/ads/:adsId"
+  params:
+    - name: adsId
+      value: 68e320b60ed373d664b3b0fe
+      type: path
+  body:
+    type: multipart-form
+    data:
+      - name: bannerName
+        type: text
+        value: ทดสอบ1
+        disabled: true
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/IMG_5170.HEIC
+      - name: bannerPosition
+        type: text
+        value: payment
+        disabled: true
+      - name: link
+        type: text
+        value: https://google.co.th
+        disabled: true
+      - name: isAllClaim
+        type: text
+        value: "false"
+        disabled: true
+      - name: dateStart
+        type: text
+        value: 2025-09-29
+        disabled: true
+      - name: dateEnd
+        type: text
+        value: 2025-10-29
+        disabled: true
+      - name: status
+        type: text
+        value: opened
+        description: // draft, opened, hided
+        disabled: true
+      - name: merchantTargetId
+        type: text
+        value: 67cfbcb3b720489056e8ceb3,67ee43db754b90f614725564
+        disabled: true
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

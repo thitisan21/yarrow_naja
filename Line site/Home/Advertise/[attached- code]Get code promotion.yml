@@ -1,0 +1,21 @@
+info:
+  name: "[attached: code]Get code promotion"
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{url_local}}/line/ads/code/:adsId"
+  params:
+    - name: adsId
+      value: 690eefdbf40d96d577359f2f
+      type: path
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

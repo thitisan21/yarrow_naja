@@ -1,0 +1,25 @@
+info:
+  name: "[Payment] Get advertise with type Copy"
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/line/ads/list?bannerPosition=payment&eventId=69086351f7ffcfb6442e5d15"
+  params:
+    - name: bannerPosition
+      value: payment
+      type: query
+      description: // discover, payment
+    - name: eventId
+      value: 69086351f7ffcfb6442e5d15
+      type: query
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

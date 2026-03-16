@@ -1,0 +1,56 @@
+info:
+  name: List event all
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/event/all?skip=1&limit=10&dateStart=2026-02-01&dateEnd=2026-02-31&sportType&search=&isRefund=all&province=&timeStart=13:00&timeEnd=20:00"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: dateStart
+      value: 2026-02-01
+      type: query
+      description: YYYY-MM-DD
+    - name: dateEnd
+      value: 2026-02-31
+      type: query
+      description: YYYY-MM-DD
+    - name: sportType
+      value: ""
+      type: query
+      description: "all, "
+    - name: search
+      value: ""
+      type: query
+      description: eventName, MerchantName
+    - name: isRefund
+      value: all
+      type: query
+      description: all, true, false
+    - name: province
+      value: ""
+      type: query
+      description: // optional
+    - name: timeStart
+      value: 13:00
+      type: query
+      description: hh:mm
+    - name: timeEnd
+      value: 20:00
+      type: query
+      description: hh:mm
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

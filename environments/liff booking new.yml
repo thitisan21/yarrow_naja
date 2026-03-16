@@ -1,0 +1,32 @@
+name: liff booking new
+variables:
+  - name: url_local
+    value: http://localhost:3000
+  - secret: true
+    name: token
+  - secret: true
+    name: tokenRefresh
+  - name: url_uat
+    value: ""
+  - name: encryptData
+    value: ""
+  - name: url_local_non
+    value: http://localhost:3000
+  - name: url_prd
+    value: https://swishbkk.com/api
+  - name: posm_dev
+    value: https://dev-posm.vthgdigital.com/api
+  - name: user_id
+    value: Ua18d099c65432d1514aa8b0612ac99bf
+  - name: url_dev
+    value: https://uat-swishapp.vthgdigital.com/api
+  - name: url_local_auth
+    value: http://localhost:3001/api
+  - name: url_dev_auth
+    value: https://yarrow-auth.vthgdigital.com/api
+  - secret: true
+    name: tokenLine
+  - name: url_dev_bbl
+    value: https://dev-bbl-dining.vthgdigital.com
+  - name: url_local_bbl
+    value: http://localhost:3000/api

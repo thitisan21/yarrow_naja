@@ -1,0 +1,32 @@
+info:
+  name: Upload slip
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/settlement/slip/:id"
+  params:
+    - name: id
+      value: 66b9cbb6890ef55d49baed9a
+      type: path
+  body:
+    type: multipart-form
+    data:
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/01_id_card.png
+      - name: paidBy
+        type: text
+        value: yarrow
+        description: yarrow, personal
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

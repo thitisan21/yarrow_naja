@@ -1,0 +1,31 @@
+info:
+  name: List event upcoming
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/event/upcoming"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+      disabled: true
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: sportType
+      value: Basket ball, Football
+      type: query
+      description: if more than on use , ex => basket ball,football,batmiton
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

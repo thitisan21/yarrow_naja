@@ -1,0 +1,31 @@
+info:
+  name: Update my profile
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{url_local}}/user/profile"
+  body:
+    type: json
+    data: |-
+      {
+          "phoneNumber": "0877777777"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const token = res.getBody()
+        bru.setEnvVar("token", token.data.accessToken);
+        bru.setEnvVar("tokenRefresh", token.data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

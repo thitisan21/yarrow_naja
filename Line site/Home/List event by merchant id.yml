@@ -1,0 +1,285 @@
+info:
+  name: List event by merchant id
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/event/inside/:id?skip=1&limit=10"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: dateStart
+      value: 2024-09-01
+      type: query
+      description: YYYY-MM-DD
+      disabled: true
+    - name: dateEnd
+      value: 2024-09-04
+      type: query
+      description: YYYY-MM-DD
+      disabled: true
+    - name: maxPrice
+      value: "600"
+      type: query
+      disabled: true
+    - name: maxParticipant
+      value: "10"
+      type: query
+      disabled: true
+    - name: id
+      value: 67eca0f47cda4a12cc9611f9
+      type: path
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: "[all new] List event by merchant id"
+    request:
+      url: "{{url_local}}/line/list/event/inside/:id?skip=1&limit=10&latitude=13.159599357278337&longitude=100.92457524505397"
+      method: GET
+      params:
+        - name: skip
+          value: "1"
+          type: query
+        - name: limit
+          value: "10"
+          type: query
+        - name: latitude
+          value: "13.159599357278337"
+          type: query
+        - name: longitude
+          value: "100.92457524505397"
+          type: query
+        - name: id
+          value: 6687b90fc65c7776bfbe736a
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "1126"
+        - name: ETag
+          value: W/"466-YiuNn7nslbvwnUqsPhQNmRprX3E"
+        - name: Date
+          value: Thu, 11 Jul 2024 03:34:28 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "dataMerchant": {
+                      "_id": "6687b90fc65c7776bfbe736a",
+                      "merchantName": "Test1",
+                      "merchantColor": "#fff5e9",
+                      "distance": "5.45 Km.",
+                      "image": "https://yarrow-dev-liff.s3.ap-southeast-1.amazonaws.com/images/668ba78bc56de4e71664dc7a?AWSAccessKeyId=AKIA2PRTXOSOWYSCOB7S&Expires=1720672468&Signature=e8tTkUpu%2FoGD9Vw6lyv5dc6Becs%3D",
+                      "locationName": "Chonburi",
+                      "merchantMapUrl": "https://maps.app.goo.gl/8EC4rES47nmqS2bJ8",
+                      "sportType": [
+                          "Basket ball",
+                          "Football"
+                      ]
+                  },
+                  "totalData": [
+                      {
+                          "_id": "668b61301e6fc67f5e8a3d1a",
+                          "eventName": "test event for mom 2",
+                          "dateStart": "2024-08-22T00:00:00.000Z",
+                          "dateEnd": "2024-08-22T00:00:00.000Z",
+                          "timeStart": "10:00",
+                          "timeEnd": "11:30",
+                          "status": "open",
+                          "duration": "01:30 hrs.",
+                          "count": "0/2",
+                          "price": 600,
+                          "processStatus": "new",
+                          "sportType": []
+                      },
+                      {
+                          "_id": "668b93cfeb04cf46b6e9b040",
+                          "eventName": "test event for mom 3",
+                          "dateStart": "2024-08-22T00:00:00.000Z",
+                          "dateEnd": "2024-08-22T00:00:00.000Z",
+                          "timeStart": "10:00",
+                          "timeEnd": "11:30",
+                          "status": "open",
+                          "duration": "01:30 hrs.",
+                          "count": "0/2",
+                          "price": 600,
+                          "processStatus": "new",
+                          "sportType": [
+                              "Basket ball"
+                          ]
+                      }
+                  ],
+                  "totalCount": 2
+              }
+          }
+  - name: "[join & refund] List event by merchant id"
+    request:
+      url: "{{url_local}}/line/list/event/inside/:id?skip=1&limit=10&latitude=13.159599357278337&longitude=100.92457524505397"
+      method: GET
+      params:
+        - name: skip
+          value: "1"
+          type: query
+        - name: limit
+          value: "10"
+          type: query
+        - name: latitude
+          value: "13.159599357278337"
+          type: query
+        - name: longitude
+          value: "100.92457524505397"
+          type: query
+        - name: id
+          value: 6687b90fc65c7776bfbe736a
+          type: path
+    response:
+      statusText: "200"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "1140"
+        - name: ETag
+          value: W/"474-WSHRBGI1jfB6wwzKNSysJf4SmFs"
+        - name: Date
+          value: Thu, 11 Jul 2024 04:45:57 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "dataMerchant": {
+                      "_id": "6687b90fc65c7776bfbe736a",
+                      "merchantName": "Test1",
+                      "merchantColor": "#fff5e9",
+                      "distance": "5.45 Km.",
+                      "image": "https://yarrow-dev-liff.s3.ap-southeast-1.amazonaws.com/images/668ba78bc56de4e71664dc7a?AWSAccessKeyId=AKIA2PRTXOSOWYSCOB7S&Expires=1720676757&Signature=2RijzBsyOnqc8UJCQtwMk3cP5yg%3D",
+                      "locationName": "Chonburi",
+                      "merchantMapUrl": "https://maps.app.goo.gl/8EC4rES47nmqS2bJ8",
+                      "sportType": [
+                          "Basket ball",
+                          "Football"
+                      ]
+                  },
+                  "totalData": [
+                      {
+                          "_id": "668b61301e6fc67f5e8a3d1a",
+                          "eventName": "test event for mom 2",
+                          "dateStart": "2024-08-22T00:00:00.000Z",
+                          "dateEnd": "2024-08-22T00:00:00.000Z",
+                          "timeStart": "10:00",
+                          "timeEnd": "11:30",
+                          "status": "open",
+                          "duration": "01:30 hrs.",
+                          "count": "1/2",
+                          "price": 600,
+                          "processStatus": "approved",
+                          "sportType": []
+                      },
+                      {
+                          "_id": "668b93cfeb04cf46b6e9b040",
+                          "eventName": "test event for mom 3",
+                          "dateStart": "2024-08-22T00:00:00.000Z",
+                          "dateEnd": "2024-08-22T00:00:00.000Z",
+                          "timeStart": "10:00",
+                          "timeEnd": "11:30",
+                          "status": "open",
+                          "duration": "01:30 hrs.",
+                          "count": "0/2",
+                          "price": 600,
+                          "processStatus": "request_refund",
+                          "sportType": [
+                              "Basket ball"
+                          ]
+                      }
+                  ],
+                  "totalCount": 2
+              }
+          }

@@ -1,0 +1,27 @@
+info:
+  name: Delete admin
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{url_local}}/backoffice/admin/:id"
+  params:
+    - name: id
+      value: 66b1e319d0e548210fb9c00a
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "Aa123456"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

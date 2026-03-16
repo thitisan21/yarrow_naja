@@ -1,0 +1,25 @@
+info:
+  name: Refresh Token
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/auth/refresh"
+  auth:
+    type: bearer
+    token: "{{tokenRefresh}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const token = res.getBody()
+        bru.setEnvVar("token", token.data.accessToken);
+        bru.setEnvVar("tokenRefresh", token.data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

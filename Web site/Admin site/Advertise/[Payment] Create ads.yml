@@ -1,0 +1,65 @@
+info:
+  name: "[Payment] Create ads"
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/ads"
+  body:
+    type: multipart-form
+    data:
+      - name: bannerName
+        type: text
+        value: ทดสอบ1
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/01download11.jpg
+      - name: bannerPosition
+        type: text
+        value: payment
+        description: discover, payment
+      - name: attached
+        type: text
+        value: code
+        description: link, code
+      - name: link
+        type: text
+        value: https://google.co.th
+        disabled: true
+      - name: promoCode
+        type: text
+        value: ABC1234
+      - name: promoNo
+        type: text
+        value: "2"
+        description: unlimit sent -1
+      - name: isAllClaim
+        type: text
+        value: "true"
+      - name: dateStart
+        type: text
+        value: 2025-09-29
+        description: YYYY-MM-DD ,if isAllClaim don't send
+      - name: dateEnd
+        type: text
+        value: 2025-10-29
+        description: YYYY-MM-DD ,if isAllClaim don't send
+      - name: status
+        type: text
+        value: opened
+        description: draft, opened
+      - name: merchantTargetId
+        type: text
+        value: 67cfbcb3b720489056e8ceb3,67ee43db754b90f614725564
+        disabled: true
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,30 @@
+info:
+  name: Update merchant location
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/backoffice/merchant/location/:id"
+  params:
+    - name: id
+      value: 6874b2af7e71be125c83570a
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "p@ssword123",
+          // "location": "สาขาบ้าน",
+          // "link": "https://bo-dev-yarrow-event-pulse.vthgdigital.com/merchant/event/6874a049eaeb9f60f035fbfc"
+          "province": "กรุงเทพมหานคร"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,25 @@
+info:
+  name: Create merchant location
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/merchant/location"
+  body:
+    type: json
+    data: |-
+      {
+          "location": "สาขาเบี่ยง",
+          "link": "https://bo-dev-yarrow-event-pulse.vthgdigital.com/merchant/event/6874a049eaeb9f60f035fbfc",
+          "province": "ชลบุรี"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

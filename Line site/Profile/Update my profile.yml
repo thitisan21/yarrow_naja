@@ -1,0 +1,27 @@
+info:
+  name: Update my profile
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/line/user/profile"
+  body:
+    type: json
+    data: |-
+      {
+          "displayName": "test ken",
+          "sportType": [
+              "Bastket ball",
+              "Tennis"
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

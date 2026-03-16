@@ -1,0 +1,32 @@
+info:
+  name: Edit priority
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{url_local}}/backoffice/ads/priority"
+  body:
+    type: json
+    data: |-
+      {
+          "dataUpdate": [
+              {
+                  "_id": "68de4abbe99b09585c17908b",
+                  "priority": 1
+              },
+              {
+                  "_id": "68e320b60ed373d664b3b0fe",
+                  "priority": 2
+              }
+          ]
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

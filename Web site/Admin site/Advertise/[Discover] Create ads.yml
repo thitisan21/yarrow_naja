@@ -1,0 +1,54 @@
+info:
+  name: "[Discover] Create ads"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/ads"
+  body:
+    type: multipart-form
+    data:
+      - name: bannerName
+        type: text
+        value: ทดสอบ
+      - name: bannerSize
+        type: text
+        value: large
+        description: large, small
+      - name: bannerPosition
+        type: text
+        value: discover
+        description: discover, payment
+      - name: attached
+        type: text
+        value: link
+        description: link, code
+      - name: link
+        type: text
+        value: https://google.co.th
+      - name: dateStart
+        type: text
+        value: 2025-09-29
+        description: YYYY-MM-DD
+      - name: dateEnd
+        type: text
+        value: 2025-09-29
+        description: YYYY-MM-DD
+      - name: status
+        type: text
+        value: draft
+        description: draft, open
+      - name: image
+        type: file
+        value:
+          - /Users/teerifle/Downloads/IMG_5169.HEIC
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

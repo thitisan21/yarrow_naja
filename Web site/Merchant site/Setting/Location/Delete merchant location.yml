@@ -1,0 +1,27 @@
+info:
+  name: Delete merchant location
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{url_local}}/backoffice/merchant/location/:id"
+  params:
+    - name: id
+      value: 6874b3e7c60f057fd04fde32
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "8oojkiyd"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

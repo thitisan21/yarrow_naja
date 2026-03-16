@@ -1,0 +1,56 @@
+info:
+  name: List merchant
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/merchant/list?skip=1&limit=10&status=open"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: status
+      value: open
+      type: query
+      description: // all, pending, open, request, paused, delete
+    - name: search
+      value: ""
+      type: query
+      description: // merchantName or name of user
+      disabled: true
+    - name: dateStart
+      value: 2024-01-01
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: dateEnd
+      value: 2025-01-09
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: sortBy
+      value: status
+      type: query
+      description: // merchantName, merchantNumber, createdAt,  status
+      disabled: true
+    - name: sortOrderBy
+      value: asc
+      type: query
+      description: // asc, desc
+      disabled: true
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

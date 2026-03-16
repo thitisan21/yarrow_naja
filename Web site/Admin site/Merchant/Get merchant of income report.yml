@@ -1,0 +1,145 @@
+info:
+  name: Get merchant of income report
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/merchant/info/income/list/:id?skip=1&limit=10&year=2024"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: year
+      value: "2024"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // eventName
+      disabled: true
+    - name: sortBy
+      value: eventName
+      type: query
+      description: // eventName, dateStart, total, totalCommission
+      disabled: true
+    - name: sortOrderBy
+      value: asc
+      type: query
+      description: // asc, desc
+      disabled: true
+    - name: id
+      value: 6687b90fc65c7776bfbe736a
+      type: path
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Get merchant of income report
+    request:
+      url: "{{url_local}}/backoffice/merchant/info/income/list/:id?year=2024"
+      method: GET
+      params:
+        - name: year
+          value: "2024"
+          type: query
+        - name: search
+          value: ""
+          type: query
+          description: // eventName
+          disabled: true
+        - name: sortBy
+          value: eventName
+          type: query
+          description: // eventName, dateStart, total, totalCommission
+          disabled: true
+        - name: sortOrderBy
+          value: asc
+          type: query
+          description: // asc, desc
+          disabled: true
+        - name: id
+          value: 6687b90fc65c7776bfbe736a
+          type: path
+      body:
+        type: json
+        data: ""
+    response:
+      statusText: "200"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "304"
+        - name: ETag
+          value: W/"130-pH1G0uxZ88eFZhsXaYvMxNzQ8YI"
+        - name: Date
+          value: Mon, 12 Aug 2024 06:38:39 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "amountCommission": 60,
+                  "amountIncome": 600,
+                  "totalData": [
+                      {
+                          "_id": "66b58c04621fe82a094faba9",
+                          "eventName": "test event for dad 1.0",
+                          "dateStart": "2024-08-10T00:00:00.000Z",
+                          "time": "17:00 - 19:30",
+                          "total": 600,
+                          "totalCommission": 60
+                      }
+                  ],
+                  "totalCount": 1
+              }
+          }

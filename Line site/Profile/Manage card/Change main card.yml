@@ -1,0 +1,23 @@
+info:
+  name: Change main card
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url_local}}/line/user/card/main"
+  body:
+    type: json
+    data: |-
+      {
+          "cardId": "67bd28ef767e2515d7230965"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,27 @@
+info:
+  name: Noti event is cancel
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/noti/event/cancel/:id"
+  params:
+    - name: id
+      value: 6825a9d72e0e6a2cce83bf13
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "8oojkiyd" //madatory
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

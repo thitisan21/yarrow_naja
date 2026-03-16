@@ -1,0 +1,22 @@
+info:
+  name: Get detail refund
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/merchant/refund/detail/:id"
+  params:
+    - name: id
+      value: 66b32e9c40d7ab5c498d4960
+      type: path
+      description: id from List request refund
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

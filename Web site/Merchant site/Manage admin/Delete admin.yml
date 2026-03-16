@@ -1,0 +1,27 @@
+info:
+  name: Delete admin
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{url_local}}/backoffice/merchant/admin/:id"
+  params:
+    - name: id
+      value: 66b2f99502507b9159398642
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "password": "Aa123456"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

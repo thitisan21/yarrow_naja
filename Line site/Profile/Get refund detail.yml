@@ -1,0 +1,21 @@
+info:
+  name: Get refund detail
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{url_local}}/line/list/event/refund/:id"
+  params:
+    - name: id
+      value: 66bd7f3f18e873432b5dea0c
+      type: path
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

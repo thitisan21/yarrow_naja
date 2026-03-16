@@ -1,0 +1,32 @@
+info:
+  name: "[Export] Get merchant of income report Copy"
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/export/merchant/info/income/list/:id?year=2024"
+  params:
+    - name: year
+      value: "2024"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // eventName
+      disabled: true
+    - name: id
+      value: 6687b90fc65c7776bfbe736a
+      type: path
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

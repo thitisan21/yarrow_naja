@@ -1,0 +1,43 @@
+info:
+  name: Export customer list
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/customer/export/list?sortBy=dateRegister&sortOrderBy=asc"
+  params:
+    - name: search
+      value: k e
+      type: query
+      description: // name
+      disabled: true
+    - name: dateStart
+      value: 2025-04-02
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: dateEnd
+      value: 2025-04-30
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: sortBy
+      value: dateRegister
+      type: query
+      description: // name, dateRegister, totalAttended, totalSpending, merchantName
+    - name: sortOrderBy
+      value: asc
+      type: query
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

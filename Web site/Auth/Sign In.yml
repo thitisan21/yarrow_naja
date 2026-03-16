@@ -1,0 +1,174 @@
+info:
+  name: Sign In
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url_local}}/auth/signin"
+  body:
+    type: json
+    data: |-
+      {
+          "email": "audyttt@gmail.com",
+          "password": "8oojkiyd"
+          // "email": "a.mod_pumppb@hotmail.co.th",
+          // "password": "Aa123456"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const token = res.getBody()
+        bru.setEnvVar("token", token.data.accessToken);
+        bru.setEnvVar("tokenRefresh", token.data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: First time to login
+    request:
+      url: "{{url_local}}/auth/signin"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "email": "ken.nuttapus@gmail.com",
+              "password": "rAGhbs"
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "643"
+        - name: ETag
+          value: W/"283-7B/d9ifz+C1BRZrsfLovZdse27c"
+        - name: Date
+          value: Fri, 05 Jul 2024 09:15:09 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Njg3YjkwZmM2NWM3Nzc2YmZiZTczNmQiLCJtZXJjaGFudElkIjoiNjY4N2I5MGZjNjVjNzc3NmJmYmU3MzZhIiwicm9sZXMiOiJBRE1JTiIsImlhdCI6MTcyMDE3MDkwOSwiZXhwIjoxNzIwMTc0NTA5fQ.voDkgZGktINzYuSEDpb1MUhgk13o2OHKxKl8llbX79k",
+                  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Njg3YjkwZmM2NWM3Nzc2YmZiZTczNmQiLCJyb2xlcyI6IkFETUlOIiwiaWF0IjoxNzIwMTcwOTA5LCJleHAiOjE3MjAyNTczMDl9.pYwGL9EtWXRkrIFNAuw5j87n35PjEORp9MfN1TdZjQg",
+                  "email": "ken.nuttapus@gmail.com",
+                  "roles": "ADMIN",
+                  "_id": "6687b90fc65c7776bfbe736d",
+                  "isFirstTime": true
+              }
+          }
+  - name: Not first time
+    request:
+      url: "{{url_local}}/auth/signin"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+              "email": "ken.nuttapus@gmail.com",
+              "password": "Aa123456"
+          }
+    response:
+      statusText: "201"
+      headers:
+        - name: Vary
+          value: Origin
+        - name: Access-Control-Allow-Credentials
+          value: "true"
+        - name: Content-Security-Policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: Cross-Origin-Opener-Policy
+          value: same-origin
+        - name: Cross-Origin-Resource-Policy
+          value: same-origin
+        - name: Origin-Agent-Cluster
+          value: ?1
+        - name: Referrer-Policy
+          value: no-referrer
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains
+        - name: X-Content-Type-Options
+          value: nosniff
+        - name: X-DNS-Prefetch-Control
+          value: off
+        - name: X-Download-Options
+          value: noopen
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-Permitted-Cross-Domain-Policies
+          value: none
+        - name: X-XSS-Protection
+          value: "0"
+        - name: Content-Type
+          value: application/json; charset=utf-8
+        - name: Content-Length
+          value: "644"
+        - name: ETag
+          value: W/"284-VaQyBVriNvvzKTBtATShRVmweAo"
+        - name: Date
+          value: Fri, 05 Jul 2024 09:17:03 GMT
+        - name: Connection
+          value: keep-alive
+        - name: Keep-Alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+              "result": true,
+              "statusCode": 200,
+              "statusMessage": "Success",
+              "data": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Njg3YjkwZmM2NWM3Nzc2YmZiZTczNmQiLCJtZXJjaGFudElkIjoiNjY4N2I5MGZjNjVjNzc3NmJmYmU3MzZhIiwicm9sZXMiOiJBRE1JTiIsImlhdCI6MTcyMDE3MTAyMywiZXhwIjoxNzIwMTc0NjIzfQ.IHBUpVirn0XcSdtrfzYxTvvtF-7apcJTJOLV2XUEE7s",
+                  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Njg3YjkwZmM2NWM3Nzc2YmZiZTczNmQiLCJyb2xlcyI6IkFETUlOIiwiaWF0IjoxNzIwMTcxMDIzLCJleHAiOjE3MjAyNTc0MjN9.QswrWksUDs6tD9MTfucVePCCqXfnb8MM_9qRML1hNbM",
+                  "email": "ken.nuttapus@gmail.com",
+                  "roles": "ADMIN",
+                  "_id": "6687b90fc65c7776bfbe736d",
+                  "isFirstTime": false
+              }
+          }

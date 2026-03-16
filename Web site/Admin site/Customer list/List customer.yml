@@ -1,0 +1,50 @@
+info:
+  name: List customer
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/customer/list?skip=1&limit=10&sortBy=dateRegister&sortOrderBy=asc"
+  params:
+    - name: skip
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+    - name: search
+      value: ""
+      type: query
+      description: // name
+      disabled: true
+    - name: dateStart
+      value: 2025-02-02
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: dateEnd
+      value: 2025-02-29
+      type: query
+      description: // YYYY-MM-DD
+      disabled: true
+    - name: sortBy
+      value: dateRegister
+      type: query
+      description: // name, dateRegister
+    - name: sortOrderBy
+      value: asc
+      type: query
+      description: // asc, desc
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
