@@ -1,0 +1,33 @@
+info:
+  name: Create promotion
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url_local}}/backoffice/promotion"
+  body:
+    type: json
+    data: |-
+      {
+        "promoTitle": "Promo all cus v2",
+        "eventId": ["69297c6a5f5e9f913482065b"], //ถ้า all ส่ง arr [] ถ้าใช้ส่ง _id
+        "sportType": [], //ถ้า all arr []
+        "promoQuota": 1, // ถ้า unlimite ส่ง -1 
+        "promoDateStart": "2026-03-11", // ถ้าไม่จำกัดวันหมด ส่งเป็น "" 
+        "promoDateEnd": "2026-03-17",
+        "discountType": "PERCENTAGE", // PERCENTAGE, FIX
+        "discountValue": 5,
+        "usageType": "UNLIMITED", //ONCE, UNLIMITED
+        "rule": "ALL_CUSTOMER", // ALL_CUSTOMER, NEW_CUSTOMER
+        "codeFormat": "ABC1236"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

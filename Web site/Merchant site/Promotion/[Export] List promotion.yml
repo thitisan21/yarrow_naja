@@ -1,0 +1,38 @@
+info:
+  name: "[Export] List promotion"
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/promotion/export/list?status=all&search&sortBy=promoTitle&sortOrderBy=asc"
+  params:
+    - name: status
+      value: all
+      type: query
+    - name: search
+      value: ""
+      type: query
+    - name: sortBy
+      value: promoTitle
+      type: query
+    - name: sortOrderBy
+      value: asc
+      type: query
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  status => all, open, pause, expired, cancel
+  search => promoTitle
+  sortBy => promoTitle, promoDateEnd, createdAt

@@ -1,0 +1,27 @@
+info:
+  name: Check promo expired
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{url_local}}/backoffice/promo/expired"
+  params:
+    - name: ""
+      value: ""
+      type: query
+      description: // run every mins , * * * * *
+      disabled: true
+  body:
+    type: json
+    data: ""
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Running every midnight
+  0 0 * * *

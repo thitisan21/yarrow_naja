@@ -1,0 +1,34 @@
+info:
+  name: Update promotion
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{url_local}}/backoffice/promotion/:id"
+  params:
+    - name: id
+      value: 69b781b0d4f3279bd166a18c
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "password": "",
+        "promoTitle": "Test promotion 1",
+        "eventId": [], //ถ้า all ส่ง arr [] ถ้าใช้ส่ง _id
+        "sportType": [], //ถ้า all arr []Ï
+        "promoDateStart": "2026-03-11", // ถ้าไม่จำกัดวันหมด ส่งเป็น "" 
+        "promoDateEnd": "2026-03-17",
+        "codeFormat": "ABCC",
+        "status": "1000" // open: 1000, pause: 2000, expired:4000  cancel: 9000
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

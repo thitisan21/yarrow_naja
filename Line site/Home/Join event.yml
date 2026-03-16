@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       {
-          "id": "695b558c33baa1e6bcb3553e",
-          "numberOfSpot": 1 // default 1 
+        "id": "69297c6a5f5e9f913482065b",
+        "numberOfSpot": 1 // default 1 
       }
   auth:
     type: bearer

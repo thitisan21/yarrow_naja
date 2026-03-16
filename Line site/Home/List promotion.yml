@@ -1,0 +1,24 @@
+info:
+  name: List promotion
+  type: http
+  seq: 14
+
+http:
+  method: GET
+  url: "{{url_local}}/line/promotion/list/:eventId"
+  params:
+    - name: eventId
+      value: 692c00d5e0d1fa09a19dce61
+      type: path
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{tokenLine}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
