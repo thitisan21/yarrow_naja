@@ -11,10 +11,10 @@ http:
     data: |-
       {
         "paymentType": "CREDIT",
-        "id": "69b7ca1104fcb6fbada1d609",
-        "paymentAmount": 183.6,
+        "id": "69bce8f2b22d3f074ceba4cc",
+        "paymentAmount": 81.6,
         "cardId": "67bc59c8188bb43463ca151f",
-        "promotionCode": "ABC1234" // for promotion
+        "promotionCode": "SSSSSS2" // for promotion
         // "securePayToken": "00acaMDQUaWLeW20gSezDlIF6+AQFvo7Bnhm6wPtQEjG6Er1ik6lZxS4BIbla04cQ88H1H84haXW6KedpR/3KzpcGwYEiDvPBiDNEj4nG4SColJWwDv9DpxsqLY7e22qaiqxh+JtzeBViNPC9yVuvmdFcpvZsRddhtKGrH4DzEnvK3Y=U2FsdGVkX1/+CtXsSeBuq1+5eSnd27F3iXKFYhRvC1OEZYRI8Jzg3gwkGbDZoac7",
         // "isRemember": false,
         // "redirectUrl": "https://localhost:5173/thank/66d967475aeb96cb655dfa27?t=card"
